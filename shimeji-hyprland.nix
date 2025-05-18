@@ -32,7 +32,8 @@ in
     extra-hyprland-config = lib.mkOption {
       type = lib.types.lines;
       default = ''
-        # Add any extra hyprland config
+        # Add any extra hyprland config you have 
+        windowrulev2 = opacity 1.0 override 1.0 override, class:com-group_finity-mascot-Main
       '';
       description = "Additions to  the hyprland config file.";
     };
