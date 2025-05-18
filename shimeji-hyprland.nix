@@ -40,11 +40,13 @@ in
     ];
 
    wayland.windowManager.hyprland.extraConfig = ''
-        windowrule = float, class:com-group_finity-mascot-Main
-        windowrule = noblur, class:com-group_finity-mascot-Main
-        windowrule = nofocus, class:com-group_finity-mascot-Main
-        windowrule = noshadow, class:com-group_finity-mascot-Main
-        windowrule = noborder, class:com-group_finity-mascot-Main
+        # The following lines come from https://github.com/sandptel/shimeji-nix module used to enable and configure shimeji mascot
+
+        windowrulev2 = float, class:com-group_finity-mascot-Main
+        windowrulev2 = noblur, class:com-group_finity-mascot-Main
+        windowrulev2 = nofocus, class:com-group_finity-mascot-Main
+        windowrulev2 = noshadow, class:com-group_finity-mascot-Main
+        windowrulev2 = noborder, class:com-group_finity-mascot-Main
         ${cfg.extra-hyprland-config}
         ${cfg.keybindings}
     '';
