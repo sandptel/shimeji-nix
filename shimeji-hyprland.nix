@@ -14,10 +14,10 @@ in
     #   description = "The number of shimeji to spawn.";
     # };
 
-    keybindigs = lib.mkOption {
+    keybindings = lib.mkOption {
       type = lib.types.lines;
       default = ''
-      bind = ALT, Y, exec, ${shiemji}/bin/spamton
+      bind = ALT, Y, exec, ${shimeji}/bin/spamton
       bind = ALT SHIFT, Y, exec, killall -9 java
       '';
       description = "Add your own Keybindings to toggle shiemji";
@@ -53,7 +53,6 @@ in
     # home.file.".config/hypr/hyprland.conf".text = ''
     #   ${cfg.extra-hyprland-config}
     # ''; 
-
-
+    
   };
 }

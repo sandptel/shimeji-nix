@@ -13,8 +13,9 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
-
-    packages.${system}.shimeji = pkgs.callPackage ./shimeji.nix{};
-
+    packages.${system}.default = pkgs.callPackage ./shimeji.nix{};
+    
+    # A home-manager module for shimeji supporting only hyprland currently
+    homeManagerModules.hyprland = import ./shimeji-hyprland.nix;
   };
 }
