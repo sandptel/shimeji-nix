@@ -14,6 +14,12 @@ in
     #   description = "The number of shimeji to spawn.";
     # };
 
+    interactive = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether Shimeji windows should be focusable. Set to false to prevent accidental focus.";
+    };
+
     keybindings = lib.mkOption {
       type = lib.types.lines;
       default = ''
@@ -41,12 +47,11 @@ in
 
    wayland.windowManager.hyprland.extraConfig = ''
         # The following lines come from https://github.com/sandptel/shimeji-nix module used to enable and configure shimeji mascot
-
         windowrulev2 = float, class:com-group_finity-mascot-Main
         windowrulev2 = noblur, class:com-group_finity-mascot-Main
-        windowrulev2 = nofocus, class:com-group_finity-mascot-Main
         windowrulev2 = noshadow, class:com-group_finity-mascot-Main
         windowrulev2 = noborder, class:com-group_finity-mascot-Main
+        ${lib.optionalString (!cfg.interactive) "windowrulev2 = nofocus, class:com-group_finity-mascot-Main"}
         ${cfg.extra-hyprland-config}
         ${cfg.keybindings}
     '';
